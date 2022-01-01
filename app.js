@@ -1,5 +1,28 @@
 
-/*
+// Clean Code //
+const delayedColorChange = (color, delay) => {
+    return new Promise((complete, fail)=> {
+        setTimeout(()=>{
+            document.body.style.backgroundColor = color;
+            complete();
+
+        }, delay)
+    })
+}
+
+delayedColorChange('red', 1000)
+.then(()=> delayedColorChange('orange', 1000))
+.then(()=> delayedColorChange('yellow', 1000))
+.then(()=> delayedColorChange('green', 1000))
+.then(()=> delayedColorChange('blue', 1000))
+.then(()=> delayedColorChange('indigo', 1000))
+.then(()=> delayedColorChange('voilet', 1000))
+.then(()=> delayedColorChange('voilet', 1000))
+
+
+
+
+/* Comments IGNORE BELOW THIS:
 const tempRequest = (url) => {
     return new Promise((complete, fail)=>{
         const rand = Math.random();
@@ -27,21 +50,3 @@ tempRequest('/dogs/1')
 }) */
 
 
-const delayedColorChange = (color, delay) => {
-    return new Promise((complete, fail)=> {
-        setTimeout(()=>{
-            document.body.style.backgroundColor = color;
-            complete();
-
-        }, delay)
-    })
-}
-
-delayedColorChange('red', 1000)
-.then(()=> delayedColorChange('orange', 1000))
-.then(()=> delayedColorChange('yellow', 1000))
-.then(()=> delayedColorChange('green', 1000))
-.then(()=> delayedColorChange('blue', 1000))
-.then(()=> delayedColorChange('indigo', 1000))
-.then(()=> delayedColorChange('voilet', 1000))
-.then(()=> delayedColorChange('voilet', 1000))
